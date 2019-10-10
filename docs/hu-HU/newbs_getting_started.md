@@ -1,23 +1,24 @@
-# Introduction
+# Bevezetés
 
-Your computer keyboard has a processor inside of it, not unlike the one inside your computer. This processor runs software that is responsible for detecting button presses and sending reports about the state of the keyboard when buttons are pressed or released. QMK fills the role of that software, detecting button presses and passing that information on to the host computer. When you build your custom keymap, you are creating the equivalent of an executable program for your keyboard.
+A számítógép billentyűzében is egy processzor van, éppmint a számítógépében. Ezen processzoron futó program feladata a billentyű lenyomások észlelése és a billentyűzet állapotának küldése, ha a billentyűket lenyomják vagy felengedik. A QMK játsza a szoftver szerepét, észleli a gombnyomásokat és továbbítja ezeket az információkat a számítógép felé. Amikor egyéni keymap-et hoz létre, egy a billentyűzeten futtatható program megfelelőjét hozza létre.
 
-QMK tries to put a lot of power into your hands by making easy things easy, and hard things possible. You don't have to know how to program to create powerful keymaps — you only have to follow a few simple syntax rules.
+A QMK sok hatalmat próbál a kezébe tenni azáltal, hogy a könnyű dolgokat könnyűvé, a nehezeket lehetővé teszi. Nem kell tudnia programozni egy jó keymap létrehozásához - csak néhány egyszerű szintaxisszabályt kell követnie.
 
-# Getting Started
+# A kezdetek
 
-Before you can build keymaps, you need to install some software and set up your build environment. This only has to be done once no matter how many keyboards you plan to compile firmware for. 
+Mielőtt elkezdené elkészíteni a keymap-jét, néhány software-t kell installálnia és elő kell készítenie a programozási környezetet. Ezt csak egyszer kell megtenni, függetlenül attól, hogy hány billentyűzetre tervezi a firmware szerkesztését.
 
-If you would prefer a more graphical user interface approach, please consider using the online [QMK Configurator](https://config.qmk.fm). Please refer to [Building Your First Firmware using the online GUI](newbs_building_firmware_configurator.md). 
+Ha inkább a grafikusa felhasználói felületet szereti, kérjük fontolja meg az online [QMK Configurator] (https://config.qmk.fm) használatát. Lásd: [Első firmware létrehozása az online felület felhasználásával] (newbs_building_firmware_configurator.md).
 
+## Software-ek letöltése
 
-## Download Software
+### Szövegszerkesztő
 
-### Text Editor
-
-You'll need a program that can edit and save **plain text** files. If you're on Windows you can make do with Notepad, and on Linux you can use gedit. Both of these are simple but functional text editors. On macOS, be careful with the default TextEdit app: it will not save plain text files unless you explicitly select _Make Plain Text_ from the _Format_ menu.
+Szüksége lesz egy programra, amellyel **egyszerű szöveges** fájlokat szerkeszthet és menthet el. Ha Windows rendszert használ, megteszi a Jegyzettömböt, és Linuxon a gedit is használható. Mindkettő egyszerű, de hasznos szövegszerkesztő. MacOS rendszeren legyen óvatos az alapértelmezett TextEdit alkalmazással: nem menthet egyszerű szöveges fájlokat, kivéve, ha a _Make Plain Text_ menüpontot választja a _Format_ menüből.
 
 You can also download and install a dedicated text editor like [Sublime Text](https://www.sublimetext.com/) or [VS Code](https://code.visualstudio.com/). This is probably the best way to go regardless of platform, as these programs are specifically made for editing code.
+
+Letölthet és telepíthet egy dedikált szövegszerkesztőt, például a [Sublime Text] (https://www.sublimetext.com/) vagy a [VS Code] (https://code.visualstudio.com/). Ez valószínűleg a legjobb mód a platformtól függetlenül történő továbblépéshez, mivel ezeket a programokat kifejezetten a kód szerkesztésére készítették.
 
 ?> Not sure which text editor to use? Laurence Bradford wrote [a great introduction](https://learntocodewith.me/programming/basics/text-editors/) to the subject.
 
