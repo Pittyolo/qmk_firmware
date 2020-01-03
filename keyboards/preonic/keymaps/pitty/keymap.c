@@ -50,11 +50,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
-  HU_0,                  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    HU_OE,   HU_UE, \
-  KC_TAB,                KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    HU_Z,    KC_U,    KC_I,    KC_O,    KC_P,    HU_OEE,  \
-  KC_ESC,                KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    HU_EE,   HU_AA, \
-  MT(MOD_LSFT, KC_NUBS), HU_Y,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    HU_COMM, HU_DOT,  HU_MINS, KC_RSFT,  \
-  KC_LCTL,               KC_LGUI, KC_LALT, LOWER,   KC_SPC,  KC_SPC,  KC_ENT,  KC_BSPC, KC_RALT, RAISE,   KC_INS,  KC_DEL  \
+  HU_0,                  KC_1,    KC_2,    KC_3,    KC_4,                KC_5,                KC_6,    KC_7,    KC_8,    KC_9,    HU_OE,   HU_UE, \
+  KC_TAB,                KC_Q,    KC_W,    KC_E,    KC_R,                KC_T,                HU_Z,    KC_U,    KC_I,    KC_O,    KC_P,    HU_OEE,  \
+  KC_ESC,                KC_A,    KC_S,    KC_D,    KC_F,                KC_G,                KC_H,    KC_J,    KC_K,    KC_L,    HU_EE,   HU_AA, \
+  MT(MOD_LSFT, KC_NUBS), HU_Y,    KC_X,    KC_C,    KC_V,                KC_B,                KC_N,    KC_M,    HU_COMM, HU_DOT,  HU_MINS, KC_RSFT,  \
+  KC_LCTL,               KC_LGUI, KC_LALT, LOWER,   LT(_LOWER, KC_SPC),  LT(_LOWER, KC_SPC),  KC_ENT,  KC_BSPC, KC_RALT, RAISE,   KC_INS,  KC_DEL  \
 ),
 
 
@@ -201,3 +201,55 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     }
   return state;
 }
+
+
+
+void encoder_update(bool clockwise) {
+	if (IS_LAYER_ON(_LOWER)) {
+		if (clockwise) {
+			tap_code(KC_MS_WH_DOWN);
+		}else {
+			tap_code(KC_MS_WH_UP);
+		}
+	}else {
+	if (IS_LAYER_ON(_RAISE)) {
+		if (clockwise) {
+			tap_code(KC_MS_WH_RIGHT);
+		}else {
+			tap_code(KC_MS_WH_LEFT);
+		}
+	}else {
+	if (get_mods() & MODS_ALT_MASK) {
+		if (clockwise) {
+			tap_code(KC_RIGHT);
+		}else {
+			tap_code(KC_LEFT);
+		}
+	}else{
+	if(get_mods()&MODS_GUI_MASK){
+		if(clockwise){
+			tap_code(KC_MS_WH_UP);
+		}else{
+			tap_code(KC_MS_WH_DOWN);
+		}
+	}else{
+	if(get_mods()&MODS_CTRL_MASK){
+		if(clockwise){
+			tap_code(KC_TAB);
+		}else{
+			register_code(KC_LSHIFT);
+		tap_code(KC_TAB);
+			unregister_code(KC_LSHIFT);
+		}
+	}else{
+	if(clockwise){
+		tap_code(KC_VOLU)
+		}else{
+		tap_code(KC_VOLD)
+		}
+	}
+	}
+	}
+	}
+	}
+	}
